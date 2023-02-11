@@ -8,7 +8,7 @@ void Shutdown();
 void setup() {
   // put your setup code here, to run once:
   M5.begin();
-  M5.EPD.SetRotation(0);
+  M5.EPD.SetRotation(90);
   M5.EPD.Clear(true); // Clear the screen.
   M5.RTC.begin();     // Init the RTC.
 
