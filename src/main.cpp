@@ -8,7 +8,7 @@ void Shutdown();
 void setup() {
   // put your setup code here, to run once:
   M5.begin();
-  M5.EPD.SetRotation(180);
+  M5.EPD.SetRotation(0);
   M5.EPD.Clear(true); // Clear the screen.
   M5.RTC.begin();     // Init the RTC.
 
@@ -22,7 +22,7 @@ void setup() {
 
   canvas.drawString(buf, 50, 50);
   canvas.pushCanvas(0, 0, UPDATE_MODE_DU4); // Update the screen.
-  Shutdown();
+  // Shutdown();
 }
 
 void loop() {
