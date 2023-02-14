@@ -9,6 +9,12 @@ void Shutdown();
 
 EPDGUI_Button *btns[20];
 
+void key_input_cb(epdgui_args_vector_t &args) {
+    EPDGUI_Button *btn = (EPDGUI_Button *)(args[0]);
+    // input_str += btn->GetCustomString();
+    // updateValue();
+}
+
 void setup() {
   // put your setup code here, to run once:
   M5.begin();
@@ -26,19 +32,10 @@ void setup() {
   canvas.drawString(buf, 50, 50);
   canvas.pushCanvas(0, 0, UPDATE_MODE_DU4);  // Update the screen.
 
-  for (int j = 0; j < 5; j++) {
-    for (int i = 0; i < 4; i++) {
-      int idx = j * 4 + i;
-      btns[idx] = new EPDGUI_Button(kTitles[idx], 12 + i * 132, 300 + j * 132,
-                                    120, 120);
-      btns[idx]->SetCustomString(kTitles[idx]);
-      EPDGUI_AddObject(btns[idx]);
-    }
-  }
-
-  btns[KEY_0]->AddArgs(EPDGUI_Button::EVENT_RELEASED, 0, btns[KEY_0]);
-  btns[KEY_0]->Bind(EPDGUI_Button::EVENT_RELEASED, key_input_cb);
-  btns[KEY_0]->SetCustomString("0");
+  EPDGUI_Button* btn = new EPDGUI_Button("test", 0, 0, 120, 120);
+  btn->AddArgs(EPDGUI_Button::EVENT_RELEASED, 0, btn);
+  btn->Bind(EPDGUI_Button::EVENT_RELEASED, key_input_cb);
+  btn->SetCustomString("0");
 
   Shutdown();
 }
@@ -52,6 +49,9 @@ void loop() {
   // canvas.drawString(buf, centerX, centerY);
   // canvas.pushCanvas(0, 0, UPDATE_MODE_A2);
 }
+
+
+
 
 void Shutdown() {
   log_d("Now the system is shutting down.");
