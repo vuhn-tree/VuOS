@@ -22,17 +22,17 @@ void setup() {
   M5.EPD.Clear(true);  // Clear the screen.
   M5.RTC.begin();      // Init the RTC.
 
-  char buf[100];
-  sprintf(buf, "Hello World!");
+  // char buf[100];
+  // sprintf(buf, "Hello World!");
 
-  canvas.createCanvas(960, 540);
-  canvas.setTextSize(88);
-  canvas.fillCanvas(0);
+  // canvas.createCanvas(960, 540);
+  // canvas.setTextSize(88);
+  // canvas.fillCanvas(0);
 
-  canvas.drawString(buf, 50, 50);
-  canvas.pushCanvas(0, 0, UPDATE_MODE_DU4);  // Update the screen.
+  // canvas.drawString(buf, 50, 50);
+  // canvas.pushCanvas(0, 0, UPDATE_MODE_DU4);  // Update the screen.
 
-  EPDGUI_Button* btn = new EPDGUI_Button("test", 0, 0, 120, 120);
+  EPDGUI_Button* btn = new EPDGUI_Button("Button", 0, 0, 120, 120);
   btn->AddArgs(EPDGUI_Button::EVENT_RELEASED, 0, btn);
   btn->Bind(EPDGUI_Button::EVENT_RELEASED, key_input_cb);
   btn->SetCustomString("0");
