@@ -50,9 +50,6 @@ void loop() {
   // canvas.pushCanvas(0, 0, UPDATE_MODE_A2);
 }
 
-
-
-
 void Shutdown() {
   log_d("Now the system is shutting down.");
   M5.EPD.Clear();
